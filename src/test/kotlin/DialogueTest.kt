@@ -12,6 +12,8 @@ class TestSource() {
         initNode.appendDialogue(subNode2, "directive2")
         val dialogue = Dialogue(initNode)
 
-
+        assertEquals(dialogue.currentDialogueNode.nodeDialogue, "test")
+        assertEquals(dialogue.currentDialogueNode.childrenDialogueList[0].nodeDialogue, "abc")
+        assertEquals(dialogue.currentDialogueNode.childrenDialogueList[1].nodeDialogue, "123")
     }
 }
