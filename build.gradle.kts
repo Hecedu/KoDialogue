@@ -10,11 +10,11 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.testng:testng:6.14.3")
     testImplementation("junit", "junit", "4.12")
-    testImplementation(kotlin("test-js"))
 
     testImplementation(kotlin("test"))
 }

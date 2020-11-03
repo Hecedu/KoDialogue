@@ -3,17 +3,19 @@ import kotlin.test.assertEquals
 import org.junit.Test as test
 
 
-class TestSource() {
+class TestSource {
     @test fun f() {
-        val initNode = DialogueNode("test")
-        val subNode1 = DialogueNode ("abc")
-        initNode.appendDialogue(subNode1, "directive")
-        val subNode2 = DialogueNode ("123")
-        initNode.appendDialogue(subNode2, "directive2")
-        val dialogue = Dialogue(initNode)
 
-        assertEquals(dialogue.currentDialogueNode.nodeDialogue, "test")
-        assertEquals(dialogue.currentDialogueNode.childrenDialogueList[0].nodeDialogue, "abc")
-        assertEquals(dialogue.currentDialogueNode.childrenDialogueList[1].nodeDialogue, "123")
+        val rootNode = DialogueNode("test1")
+
+            val choiceNode = DialogueNodeChoice("testChoice")
+            rootNode.appendDialogueChoice(choiceNode, "choice leads to node")
+            val fakeNode = DialogueNodeFakeChoice("testFake")
+            rootNode.setDialogueFakeChoice(fakeNode, arrayOf("all","choices","lead","to","fake"))
+        val dialogue = Dialogue(rootNode)
+
+        assertEquals(dialogue.rootDialogue.nodeDialogue, "test")
+        assertEquals(dialogue.rootDialogue.childrenDialogueChoiceList.first().nodeDialogue, "testChoice")
+        assertEquals(dialogue.rootDialogue.fakeChoice!!.nodeDialogue, "testFake")
     }
 }
