@@ -1,4 +1,4 @@
-![KoDialogue Logo](https://i.imgur.com/ClGK8tX.png)
+![KoDialogue Logo](https://i.imgur.com/ClGK8tX.png)  
 A simple node-based dialogue adventure engine for Kotlin.
 
 # What is KoDialogue?
